@@ -2,6 +2,8 @@
 #include <wx/wx.h>
 #include "MyObject.h"
 #include <cstdlib>
+#include <ctime>  // this is for randomizing the color of the balloon with
+						// rand using time as the seed
 
 class YellowBalloon : public MyObject {
 

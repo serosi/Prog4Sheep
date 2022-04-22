@@ -31,15 +31,15 @@ cGameControlPanel::cGameControlPanel(wxFrame* parent, wxPanel* view, MyObjectLis
 
 	// I looked up how to change the font size of a wxStaticText box using
 	// Mr. Google and used the first bit of code that made sense
-	wxFont myFont = wxFont(24, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false);
+	wxFont myFont = wxFont(16, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false);
 
 	// I could specify the size of the buttons, but you can look into that if you like!
 	// There are programmatic ways to generate unique IDs in wxWidgets
 	// like the function wxNewId() or the defined wxID_HIGHEST
 	// But, keeping it simple for starter code - you can hardcode
 	// IDs if you want, just makes the code a bit hard to maintain
-	m_launchBtn = new wxButton(this, 10001, "LAUNCH!");
-	m_fireBtn = new wxButton(this, 10002, "FIRE!");
+	m_launchBtn = new wxButton(this, 10001, "Launch Sheep");
+	m_fireBtn = new wxButton(this, 10002, "Throw Dart");
 
 	//m_scoreText = new wxStaticText(this, wxID_ANY, "Score: ", wxPoint(170, 20), wxSize(120, 50));
 	m_scoreText = new wxStaticText(this, wxID_ANY, "Score: ");
@@ -89,7 +89,7 @@ void cGameControlPanel::OnButtonLaunch(wxCommandEvent& evt)
 	// random x start location (between 100 and panel width - 100)
 	int startX = (rand() % (tempSize.GetX() - 100)) + 100;
 	// hardcoded y start location (100 pixels from bottom)
-	int startY = tempSize.GetY() - 100;
+	int startY = tempSize.GetY() - 250;
 
 	// create the YellowBalloon now that we have all starting parameters
 	balloon = new YellowBalloon(startX, startY, m_view, m_scoreValue);

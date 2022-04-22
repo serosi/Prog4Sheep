@@ -17,11 +17,13 @@ public:
 private:
 	wxFrame* m_parent = nullptr;
 	wxTimer* m_timer = nullptr;
+	wxSlider* m_slider = nullptr; // for setting framerate
 	MyObjectList* m_objList = nullptr;
 
 public:
 	void OnPaint(wxPaintEvent& event);
 	void OnTimer(wxTimerEvent& event);
+	void OnLeftClick(wxMouseEvent& event);
 
 	// need to declare the event table in header
 	// this event table is relative to the panel

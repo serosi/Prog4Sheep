@@ -5,6 +5,7 @@
 wxBEGIN_EVENT_TABLE(cGameViewPanel, wxPanel)
 EVT_PAINT(OnPaint)
 EVT_TIMER(10003, OnTimer)
+EVT_LEFT_DOWN(OnLeftClick)
 wxEND_EVENT_TABLE()
 
 cGameViewPanel::cGameViewPanel(wxFrame* parent, MyObjectList* list)
@@ -20,7 +21,10 @@ cGameViewPanel::cGameViewPanel(wxFrame* parent, MyObjectList* list)
 	// wouldn't it be nice if the user could adjust the refresh rate?
 	// sounds like some extra credit to me :)
 	m_timer = new wxTimer(this, 10003);
-	m_timer->Start(30);
+	//m_slider = new wxSlider();
+	double fps = 165;
+	// 1000 / fps gives the milliseconds between each frame
+	m_timer->Start(500);
 
 	// There's a lot fewer controls created here because the view panel 
 	// is our game's drawing surface - this is where game objects will appear
@@ -41,6 +45,9 @@ void cGameViewPanel::OnPaint(wxPaintEvent& event)
 	// create a device context
 	wxPaintDC dc(this);
 
+	wxBitmap* background = new wxBitmap("./background.bmp", wxBITMAP_TYPE_BMP);
+	dc.DrawBitmap(*background, 0, 0, false);
+
 	// The MyObjectList pointer shouldn't be nullptr, but check
 	// just in case before invoking the ShowAll() function
 	if (m_objList != nullptr)
@@ -54,7 +61,14 @@ void cGameViewPanel::OnTimer(wxTimerEvent& event)
 	if (m_objList != nullptr)
 		m_objList->MoveAll();
 
+	
+
 	// Force a re-draw
 	Refresh();
 	Update();
+}
+
+void cGameViewPanel::OnLeftClick(wxMouseEvent& event)
+{
+	wxPoint mousePt = event.GetPosition();
 }

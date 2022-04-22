@@ -4,7 +4,7 @@
 // list to initialize the necessary parameters of the parent
 // class wxFrame 
 cMain::cMain()
-	: wxFrame(nullptr, wxID_ANY, "Program 4 - Balloon Game")
+	: wxFrame(nullptr, wxID_ANY, "Program 4: Sheep Balloon Game")
 {
 	// First, we need to create the MyObjectList!
 	m_objList = new MyObjectList();
@@ -60,7 +60,7 @@ cMain::cMain()
 	// not cooperate when I tried to initialize this in the member
 	// initialization list once I added the sizers, so I just do it
 	// here instead after adding the sizer-related functionality
-	this->SetSize(wxSize(1080, 720));
+	this->SetSize(wxSize(1600, 900));
 }
 
 cMain::~cMain()
