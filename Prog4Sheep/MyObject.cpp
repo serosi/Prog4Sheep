@@ -6,13 +6,11 @@
 void MyObject::Show(wxPaintDC& dc)
 {
 	// as long as the image has been created, draw it!
-	if (image.IsOk())
-	{
+	if (image.IsOk()) {
 		// draw the image to the graphics object
 		dc.DrawBitmap(image, xy_Current.first, xy_Current.second, true);
 	}
-	else
-	{
+	else {
 		wxMessageBox("MyObject Image Invalid, program will now crash! :(");
 	}
 }
@@ -67,6 +65,23 @@ void MyObject::setScores(MyObject* b)
 	// 1. add popScore() to value 
 	// 2. set scores = 0 for each object, that's what tells the program
 	//    that the object is popped (or exploded in the case of bombs)!
+
+	if (typeOfObject() == 0) { // if dart collided with balloon
+		if (CollidedWith(b)) {
+			value += popScore();
+			scores = 0;
+			wxMessageDialog* dial = new wxMessageDialog(nullptr,
+				wxT("Dart hit balloon"), wxT("Hi"), wxOK);
+			dial->ShowModal();
+		}
+	}
+
+	if (typeOfObject() == 0) { // if dart collided with dart
+		if (CollidedWith(0)) {
+			value += popScore();
+			scores = 0;
+		}
+	}
 
 
 	// once we're done, update the overall score

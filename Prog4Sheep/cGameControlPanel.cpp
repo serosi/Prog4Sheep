@@ -5,6 +5,7 @@
 wxBEGIN_EVENT_TABLE(cGameControlPanel, wxPanel)
 EVT_BUTTON(10001, OnButtonLaunch)
 EVT_BUTTON(10002, OnButtonFire)
+EVT_LEFT_DOWN(OnFireDart)
 wxEND_EVENT_TABLE()
 
 cGameControlPanel::cGameControlPanel(wxFrame* parent, wxPanel* view, MyObjectList* list)
@@ -111,20 +112,22 @@ void cGameControlPanel::OnButtonFire(wxCommandEvent& evt)
 	// points to the newly created balloon object
 	MyObject* bomb;
 
-	// don't really need this if we are always starting along the left
-	// border of the panel, but you might want to do some extra credit
+	// don't really need this if we are always starting along the left border of the panel, but you might want to do some extra credit
 	wxSize tempSize = m_view->GetClientSize();
 
-	// hardcode a spot along the left border to release the bomb
-	// or, experiment with firing options for extra credit!
-	int startX = 0;
-	int startY = 40;
+	// hardcode a spot along the left border to release the bomb or, experiment with firing options for extra credit!
+	int startX = 5;
+	int startY = 50;
 
 	bomb = new Bomb(startX, startY, m_view, m_scoreValue);
 
 	// add the bomb to the object list
-	// The MyObjectList pointer shouldn't be nullptr, but check
-	// just in case before adding the object
+	// The MyObjectList pointer shouldn't be nullptr, but check just in case before adding the object
 	if (m_objList != nullptr)
 		m_objList->AddToList(bomb);
+}
+
+void cGameControlPanel::OnFireDart(wxMouseEvent& evt)
+{
+	
 }

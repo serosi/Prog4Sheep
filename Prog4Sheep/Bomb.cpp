@@ -1,6 +1,7 @@
 #include "Bomb.h"
 using namespace std;
 
+
 Bomb::Bomb(int startX, int startY, wxPanel* drawingPanel, wxStaticText* scoreValue)
 	: MyObject(startX, startY, drawingPanel, scoreValue)
 {
@@ -21,6 +22,11 @@ Bomb::Bomb(int startX, int startY, wxPanel* drawingPanel, wxStaticText* scoreVal
 void Bomb::Move() {
 	// get the size of the draw panel
 	wxSize tempSize = drawPanel->GetClientSize();
+
+	xy_Current.first += x_SPEED;
+	if (xy_Current.first > tempSize.x || xy_Current.second > tempSize.y) {
+		// delete
+	}
 
 	// Now, decide how to move the bomb with every tick of the clock
 }

@@ -33,8 +33,7 @@ public:
 	// Loops through the list and shows every bot 
 	void ShowAll(wxPaintDC& dc);
 
-	// Checks if the balloons have collided with eachother
-	// and pop balloons / bombs
+	// Checks if the balloons have collided with eachother and pop balloons / bombs
 	void CheckCollides();
 
 	// how many active objects are current in the game?

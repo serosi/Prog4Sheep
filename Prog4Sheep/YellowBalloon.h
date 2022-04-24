@@ -23,6 +23,8 @@ private:
 	// we can set a type value for each derived object
 	// ideally, you would create an enumeration for all types
 	int type = 2;
+	int startPt;
+	bool goingRight;
 
 	// the remaining attributes relate to speed and random drift
 	int MAX_WALK = 15;

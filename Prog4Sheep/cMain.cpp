@@ -9,10 +9,8 @@ cMain::cMain()
 	// First, we need to create the MyObjectList!
 	m_objList = new MyObjectList();
 
-	// For Program 4, we will get a bit more sophiscated with
-	// our layour design. When using a Graphical Framework, we 
-	// typically create panels to group related objects on and
-	// a use a panel (or more than one) as a drawing surface
+	// For Program 4, we will get a bit more sophiscated with our layour design. When using a Graphical Framework, we 
+	// typically create panels to group related objects on and a use a panel (or more than one) as a drawing surface
 
 	// To get you started, I am creating two panels. The top
 	// one will have game control elements like the fire button

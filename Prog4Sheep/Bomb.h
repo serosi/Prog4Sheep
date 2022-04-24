@@ -2,6 +2,8 @@
 #include "MyObject.h"
 #include <cstdlib>
 
+
+
 class Bomb : public MyObject {
 
 public:

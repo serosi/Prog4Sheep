@@ -20,8 +20,7 @@ void MyObjectList::MoveAll()
 {
 	// I'll give you this function to save you a little time :)
 
-	// The idea here is that there are well-defined steps for moving
-	// everything!
+	// The idea here is that there are well-defined steps for moving everything!
 	// 1. Loop through vector and call the Move() function for all objects
 	// 2. Check for collisions now that objects have moved
 	// 3. Delete any popped objects
@@ -43,6 +42,11 @@ void MyObjectList::CheckCollides()
 	if (list.empty()) return;
 
 	// OK, now how to we check for collisions between objects?
+	
+	for (auto it = list.begin(); it != list.end(); it++)
+	{
+		
+	}
 
 	return;
 }

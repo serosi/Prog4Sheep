@@ -33,6 +33,7 @@ private:
 public:
 	void OnButtonLaunch(wxCommandEvent& evt);
 	void OnButtonFire(wxCommandEvent& evt);
+	void OnFireDart(wxMouseEvent& evt);
 
 	// need to declare the event table in header
 	// this event table is relative to the panel
