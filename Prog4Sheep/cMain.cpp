@@ -60,7 +60,7 @@ cMain::cMain()
 	// not cooperate when I tried to initialize this in the member
 	// initialization list once I added the sizers, so I just do it
 	// here instead after adding the sizer-related functionality
-	this->SetSize(wxSize(1600, 900));
+	this->SetClientSize(wxSize(1376, 816));
 }
 
 cMain::~cMain()

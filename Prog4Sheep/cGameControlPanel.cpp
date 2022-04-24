@@ -89,7 +89,7 @@ void cGameControlPanel::OnButtonLaunch(wxCommandEvent& evt)
 	// random x start location (between 100 and panel width - 100)
 	int startX = (rand() % (tempSize.GetX() - 100)) + 100;
 	// hardcoded y start location (100 pixels from bottom)
-	int startY = tempSize.GetY() - 250;
+	int startY = tempSize.GetY() - 350;
 
 	// create the YellowBalloon now that we have all starting parameters
 	balloon = new YellowBalloon(startX, startY, m_view, m_scoreValue);

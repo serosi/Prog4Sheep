@@ -41,13 +41,13 @@ void YellowBalloon::Move() {
 	// get the size of the draw panel
 	wxSize tempSize = drawPanel->GetClientSize();
 
-
-
 	// Now, decide how to move yellow balloons with each tick of the clock
 
-	int xCoord = xy_Current.first;
-	int yCoord = xy_Current.second;
+	xy_Current.second -= y_SPEED;
 
+	if (xy_Current.second < 0 - image.GetHeight()) {
+		xy_Current.second = tempSize.y;
+	}
 
 }
 

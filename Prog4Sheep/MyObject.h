@@ -89,12 +89,12 @@ public:
 protected:
 	std::pair<int, int> xy_Current;	// Current position as a std::pair
 
-	wxPanel* drawPanel;				// Panel on which to show the object
+	wxPanel* drawPanel;					// Panel on which to show the object
 	wxStaticText* currentScore;		// for access to current overall score from GUI stored in textbox 
-	wxImage image;					// Image displayed for the object
+	wxImage image;							// Image displayed for the object
 
 	int scores;						// positive integer value indicates not popped or exploded
-									// this would probably make more sense as a Bool
+										// this would probably make more sense as a Bool
 	int type;						// Type of Object - might help identify 
-									// ballon vs bomb or extra features									
+										// ballon vs bomb or extra features									
 };

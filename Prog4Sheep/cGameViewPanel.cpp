@@ -24,7 +24,7 @@ cGameViewPanel::cGameViewPanel(wxFrame* parent, MyObjectList* list)
 	//m_slider = new wxSlider();
 	double fps = 165;
 	// 1000 / fps gives the milliseconds between each frame
-	m_timer->Start(500);
+	m_timer->Start(50);
 
 	// There's a lot fewer controls created here because the view panel 
 	// is our game's drawing surface - this is where game objects will appear
@@ -71,4 +71,5 @@ void cGameViewPanel::OnTimer(wxTimerEvent& event)
 void cGameViewPanel::OnLeftClick(wxMouseEvent& event)
 {
 	wxPoint mousePt = event.GetPosition();
+	
 }
