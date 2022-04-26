@@ -5,10 +5,10 @@
 #include <ctime>  // this is for randomizing the color of the balloon with
 						// rand using time as the seed
 
-class YellowBalloon : public MyObject {
+class Balloon : public MyObject {
 
 public:
-	YellowBalloon(int startX, int startY, wxPanel* drawingPanel, wxStaticText* scoreValue);
+	Balloon(int startX, int startY, wxPanel* drawingPanel, wxStaticText* scoreValue);
 
 	// This Method moves the yellow balloons
 	virtual void Move();
@@ -28,6 +28,6 @@ private:
 
 	// the remaining attributes relate to speed and random drift
 	int MAX_WALK = 15;
-	int x_SPEED = -2;
-	int y_SPEED = 3;
+	int x_SPEED = 1;
+	int y_SPEED = 2;
 };

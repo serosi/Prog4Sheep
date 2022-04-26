@@ -1,6 +1,6 @@
 #pragma once
 #include <wx/wx.h>
-#include "YellowBalloon.h"
+#include "Balloon.h"
 #include "Bomb.h"
 #include "MyObjectList.h"
 

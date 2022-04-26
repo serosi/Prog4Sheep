@@ -78,7 +78,7 @@ void cGameControlPanel::OnButtonLaunch(wxCommandEvent& evt)
 {
 	// I have given you the basic starting point for creating
 	// and drawing a yellow balloon to the screen
-	// But, I have erased my Move() code for YellowBalloon. So, it
+	// But, I have erased my Move() code for Balloon. So, it
 	// is created and just sits there forever!
 
 	// create a yellow balloon randomly along the bottom of the view panel
@@ -92,8 +92,8 @@ void cGameControlPanel::OnButtonLaunch(wxCommandEvent& evt)
 	// hardcoded y start location (100 pixels from bottom)
 	int startY = tempSize.GetY() - 350;
 
-	// create the YellowBalloon now that we have all starting parameters
-	balloon = new YellowBalloon(startX, startY, m_view, m_scoreValue);
+	// create the Balloon now that we have all starting parameters
+	balloon = new Balloon(startX, startY, m_view, m_scoreValue);
 
 	// add the balloon to the object list
 	// The MyObjectList pointer shouldn't be nullptr, but check

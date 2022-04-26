@@ -43,10 +43,16 @@ void MyObjectList::CheckCollides()
 
 	// OK, now how to we check for collisions between objects?
 	
-	for (auto it = list.begin(); it != list.end(); it++)
-	{
-		
-	}
+
+	/*for (int i = 0; i < list.size(); i++) {
+		for (int j = 0; i < list.size(); j++) {
+			if (list.at(i) != list.at(j) && !list.at(i)->IsPopped() && !list.at(j)->IsPopped() 
+				&&	list.at(i)->CollidedWith(list.at(j))) {
+
+			}
+		}
+	}*/
+	
 
 	return;
 }

@@ -25,4 +25,5 @@ private:
 
 	// Bombs move right at a constant rate
 	int x_SPEED = 6;
+
 };

@@ -26,7 +26,7 @@
     <ClInclude Include="cMain.h" />
     <ClInclude Include="MyObject.h" />
     <ClInclude Include="MyObjectList.h" />
-    <ClInclude Include="YellowBalloon.h" />
+    <ClInclude Include="Balloon.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bomb.cpp" />
@@ -36,7 +36,7 @@
     <ClCompile Include="cMain.cpp" />
     <ClCompile Include="MyObject.cpp" />
     <ClCompile Include="MyObjectList.cpp" />
-    <ClCompile Include="YellowBalloon.cpp" />
+    <ClCompile Include="Balloon.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -36,7 +36,7 @@
     <ClInclude Include="MyObjectList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="YellowBalloon.h">
+    <ClInclude Include="Balloon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -62,7 +62,7 @@
     <ClCompile Include="MyObjectList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="YellowBalloon.cpp">
+    <ClCompile Include="Balloon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

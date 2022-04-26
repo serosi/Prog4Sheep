@@ -1,7 +1,7 @@
-#include "YellowBalloon.h"
+#include "Balloon.h"
 using namespace std;
 
-YellowBalloon::YellowBalloon(int startX, int startY, wxPanel* drawingPanel, wxStaticText* scoreValue)
+Balloon::Balloon(int startX, int startY, wxPanel* drawingPanel, wxStaticText* scoreValue)
 	: MyObject(startX, startY, drawingPanel, scoreValue)
 {
 	// load the image transparent so we won't get weird effects on overlap
@@ -39,7 +39,7 @@ YellowBalloon::YellowBalloon(int startX, int startY, wxPanel* drawingPanel, wxSt
 // You write this is the derived classes.
 // Move function for VBot - Must handle walls properly.
 // Must use x and y.  Must use properties of image and drawPanel.
-void YellowBalloon::Move() {
+void Balloon::Move() {
 	// get the size of the draw panel
 	wxSize tempSize = drawPanel->GetClientSize();
 
@@ -48,17 +48,19 @@ void YellowBalloon::Move() {
 	xy_Current.second -= y_SPEED;
 
 
-	if (xy_Current.first <= startPt + 20 && goingRight) {
-		xy_Current.first++;
+	// for making the sheep drift side to side:
+	if (xy_Current.first <= startPt + MAX_WALK && goingRight) {
+		xy_Current.first+=x_SPEED; // if the sheep is supposed to be going right, keep going right
 	}
-	if (xy_Current.first == startPt + 20)
-		goingRight = false;
-	if (!goingRight) {
-		xy_Current.first--;
+	if (xy_Current.first >= startPt + MAX_WALK)
+		goingRight = false; // if max drift is reached, sheep is no longer going right
+	if (!goingRight) { // if sheep is not going right, it is going left
+		xy_Current.first-=x_SPEED; // so make it go left
 		if (xy_Current.first <= startPt)
-			goingRight = true;
+			goingRight = true; // if it reaches original starting point, go right again
 	}
 
+	// if the sheep goes out of view, have it come up from the bottom of the screen
 	if (xy_Current.second < 0 - image.GetHeight()) {
 		xy_Current.second = tempSize.y;
 	}
@@ -66,11 +68,11 @@ void YellowBalloon::Move() {
 }
 
 // This method returns the score for popping a yellow balloon
-int YellowBalloon::popScore() {
+int Balloon::popScore() {
 	return 10;
 }
 
 // This returns the "type" of object this is (int value you define)
-int YellowBalloon::typeOfObject() {
+int Balloon::typeOfObject() {
 	return type;
 }
