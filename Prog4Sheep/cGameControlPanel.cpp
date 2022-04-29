@@ -5,7 +5,6 @@
 wxBEGIN_EVENT_TABLE(cGameControlPanel, wxPanel)
 EVT_BUTTON(10001, OnButtonLaunch)
 EVT_BUTTON(10002, OnButtonFire)
-EVT_LEFT_DOWN(OnFireDart)
 wxEND_EVENT_TABLE()
 
 cGameControlPanel::cGameControlPanel(wxFrame* parent, wxPanel* view, MyObjectList* list)
@@ -105,29 +104,29 @@ void cGameControlPanel::OnButtonLaunch(wxCommandEvent& evt)
 void cGameControlPanel::OnButtonFire(wxCommandEvent& evt)
 {
 	// I have given you the basic starting point for creating
-	// and drawing a bomb to the screen
-	// But, I have erased my Move() code for the Bomb. So, it
+	// and drawing a Dart to the screen
+	// But, I have erased my Move() code for the Dart. So, it
 	// is created and just sits there forever!
 
 	// points to the newly created balloon object
-	MyObject* bomb;
+	MyObject* dart;
 
 	// don't really need this if we are always starting along the left border of the panel, but you might want to do some extra credit
 	wxSize tempSize = m_view->GetClientSize();
 
-	// hardcode a spot along the left border to release the bomb or, experiment with firing options for extra credit!
+	// hardcode a spot along the left border to release the Dart or, experiment with firing options for extra credit!
 	int startX = 5;
 	int startY = 50;
 
-	bomb = new Bomb(startX, startY, m_view, m_scoreValue);
+	dart = new Dart(startX, startY, m_view, m_scoreValue);
 
-	// add the bomb to the object list
+	// add the Dart to the object list
 	// The MyObjectList pointer shouldn't be nullptr, but check just in case before adding the object
 	if (m_objList != nullptr)
-		m_objList->AddToList(bomb);
+		m_objList->AddToList(dart);
 }
 
-void cGameControlPanel::OnFireDart(wxMouseEvent& evt)
+void cGameControlPanel::OnFireDart(wxPoint& mousePt)
 {
 	
 }

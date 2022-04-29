@@ -42,16 +42,56 @@ void MyObjectList::CheckCollides()
 	if (list.empty()) return;
 
 	// OK, now how to we check for collisions between objects?
-	
+	bool isHit = false;
+	for (int i = 0; i < list.size()-1; i++) {
+		for (int j = i+1; j < list.size(); j++) {
+			//if (list.at(i) != list.at(j) && !list.at(i)->IsPopped() && !list.at(j)->IsPopped() &&	list.at(i)->CollidedWith(list.at(j))) {
+			if (!list.at(i)->IsPopped() && !list.at(j)->IsPopped() && list.at(i)->CollidedWith(list.at(j))) {
 
-	/*for (int i = 0; i < list.size(); i++) {
-		for (int j = 0; i < list.size(); j++) {
-			if (list.at(i) != list.at(j) && !list.at(i)->IsPopped() && !list.at(j)->IsPopped() 
-				&&	list.at(i)->CollidedWith(list.at(j))) {
+				// different scenarios to look for - 1 Dart 2 balloons 
+				// Dart vs Dart
+				// Dart vs balloon
+				// balloon vs Dart
 
+				MyObject* tmp;
+				if (list.at(i)->typeOfObject() == 0) {
+					tmp = list.at(j);
+				} else {
+					tmp = list.at(i);
+				}
+
+				//if (tmp->typeOfObject() == 0) { // if dart hits dart
+				//	wxMessageDialog* f = new wxMessageDialog(nullptr,
+				//		wxT("Ok"), wxT("Dart hit a dart"), wxOK);
+				//	//f->ShowModal();
+				//	//MyObject* tmpBalloon = new PoppedBalloon(tmp->getLoc());
+				//}
+				if (tmp->typeOfObject() == 2) {
+					wxMessageDialog* f = new wxMessageDialog(nullptr,
+						wxT("Ok"), wxT("Dart hit balloon"), wxOK);
+					//f->ShowModal();
+				}
+				
+				else if (tmp->typeOfObject() == 0) {
+					wxMessageDialog* f = new wxMessageDialog(nullptr,
+						wxT("Ok"), wxT("Balloon hit dart"), wxOK);
+					//f->ShowModal();
+				}
+				list.at(i)->setScores(list.at(j));
+				isHit = true;
 			}
 		}
-	}*/
+	}
+
+	if (isHit) {
+		std::vector<MyObject*> tempVect;
+		for (int i = 0; i < list.size(); i++) {
+			if (list.at(i)->typeOfObject() != 0) {
+				tempVect.push_back(list.at(i));
+			}
+		}
+		list = tempVect;
+	}
 	
 
 	return;

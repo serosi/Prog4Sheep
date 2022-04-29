@@ -20,7 +20,7 @@ cMain::cMain()
 	// starting point with wxWidgets and a layout that is reasonable
 
 	// Create the game view panel, this is where we'll draw the 
-	// actual gameplay objects like balloons and bombs.
+	// actual gameplay objects like balloons and Darts.
 	// need to create it first so we can pass a pointer to control
 	m_GameViewPanel = new cGameViewPanel(this, m_objList);
 

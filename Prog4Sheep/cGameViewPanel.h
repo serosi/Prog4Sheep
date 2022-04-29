@@ -7,7 +7,7 @@
 // a lot more control and flexibility to our designs!
 // ****
 // The cGameViewPanel is where we will draw game elements
-// like balloons and bombs, etc.
+// like balloons and Darts, etc.
 class cGameViewPanel : public wxPanel
 {
 public:

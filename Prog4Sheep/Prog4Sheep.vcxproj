@@ -19,24 +19,34 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Bomb.h" />
+    <ClInclude Include="BlueBalloon.h" />
+    <ClInclude Include="Dart.h" />
     <ClInclude Include="cApp.h" />
     <ClInclude Include="cGameControlPanel.h" />
     <ClInclude Include="cGameViewPanel.h" />
     <ClInclude Include="cMain.h" />
+    <ClInclude Include="GreenBalloon.h" />
     <ClInclude Include="MyObject.h" />
     <ClInclude Include="MyObjectList.h" />
     <ClInclude Include="Balloon.h" />
+    <ClInclude Include="PoppedBalloon.h" />
+    <ClInclude Include="RedBalloon.h" />
+    <ClInclude Include="YellowBalloon.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Bomb.cpp" />
+    <ClCompile Include="BlueBalloon.cpp" />
+    <ClCompile Include="Dart.cpp" />
     <ClCompile Include="cApp.cpp" />
     <ClCompile Include="cGameControlPanel.cpp" />
     <ClCompile Include="cGameViewPanel.cpp" />
     <ClCompile Include="cMain.cpp" />
+    <ClCompile Include="GreenBalloon.cpp" />
     <ClCompile Include="MyObject.cpp" />
     <ClCompile Include="MyObjectList.cpp" />
     <ClCompile Include="Balloon.cpp" />
+    <ClCompile Include="PoppedBalloon.cpp" />
+    <ClCompile Include="RedBalloon.cpp" />
+    <ClCompile Include="YellowBalloon.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

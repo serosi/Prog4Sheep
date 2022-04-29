@@ -14,11 +14,9 @@ Balloon::Balloon(int startX, int startY, wxPanel* drawingPanel, wxStaticText* sc
 	{
 	case 1: // blue
 		image.LoadFile("./sheep_balloon_blue.bmp", wxBITMAP_TYPE_BMP);
-		balloonColor = 'b';
 		break;
 	case 2: // red
 		image.LoadFile("./sheep_balloon_red.bmp", wxBITMAP_TYPE_BMP);
-		balloonColor = 'r';
 		break;
 	case 3: // green
 		image.LoadFile("./sheep_balloon_green.bmp", wxBITMAP_TYPE_BMP);
@@ -35,6 +33,7 @@ Balloon::Balloon(int startX, int startY, wxPanel* drawingPanel, wxStaticText* sc
 	startPt = startX;
 	goingRight = true;
 }
+
 
 // You write this is the derived classes.
 // Move function for VBot - Must handle walls properly.

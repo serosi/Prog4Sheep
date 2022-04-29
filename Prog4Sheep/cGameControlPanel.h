@@ -1,7 +1,7 @@
 #pragma once
 #include <wx/wx.h>
 #include "Balloon.h"
-#include "Bomb.h"
+#include "Dart.h"
 #include "MyObjectList.h"
 
 // it's better design to add controls to a panel and
@@ -33,7 +33,7 @@ private:
 public:
 	void OnButtonLaunch(wxCommandEvent& evt);
 	void OnButtonFire(wxCommandEvent& evt);
-	void OnFireDart(wxMouseEvent& evt);
+	void OnFireDart(wxPoint& mousePt);
 
 	// need to declare the event table in header
 	// this event table is relative to the panel

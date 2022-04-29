@@ -1,5 +1,5 @@
 // 
-// MyObject is an abstract base class for balloons and bombs.
+// MyObject is an abstract base class for balloons and Darts.
 // 
 #include "MyObject.h"
 
@@ -41,7 +41,7 @@ bool MyObject::CollidedWith(MyObject* b) const
 	return ((x_right >= bx_left && bx_right >= x_left) && (y_bottom >= by_top && by_bottom >= y_top));
 }
 
-// This function sets the Scores for the balloons and bombs
+// This function sets the Scores for the balloons and Darts
 void MyObject::setScores(MyObject* b)
 {
 	// need to update the score:
@@ -52,11 +52,11 @@ void MyObject::setScores(MyObject* b)
 
 	// Now, you need to decide how to update value based on the 
 	// different types of collisions:
-	// - Is this a bomb and did it miss all balloons (input b is nullptr)?
-	// - balloon vs. bomb?
-	// - bomb vs. balloon?
+	// - Is this a Dart and did it miss all balloons (input b is nullptr)?
+	// - balloon vs. Dart?
+	// - Dart vs. balloon?
 	// - balloon vs. balloon?
-	// - bomb vs. bomb?
+	// - Dart vs. Dart?
 	// You need to figure out how to test for these scenarios and what to
 	// do.
 
@@ -64,24 +64,47 @@ void MyObject::setScores(MyObject* b)
 	// this logic:
 	// 1. add popScore() to value 
 	// 2. set scores = 0 for each object, that's what tells the program
-	//    that the object is popped (or exploded in the case of bombs)!
+	//    that the object is popped (or exploded in the case of Darts)!
 
-	if (typeOfObject() == 0) { // if dart collided with balloon
-		if (CollidedWith(b)) {
-			value += popScore();
-			scores = 0;
-			wxMessageDialog* dial = new wxMessageDialog(nullptr,
-				wxT("Dart hit balloon"), wxT("Hi"), wxOK);
-			dial->ShowModal();
-		}
+
+
+	if (this->typeOfObject() == 0 && b->typeOfObject() == 0 && CollidedWith(b)) { // if dart hits dart
+		value += this->popScore();
+		b->scores = 0;
+		wxMessageDialog* f = new wxMessageDialog(nullptr,
+			wxT("Ok"), wxT("SCORES: Dart hit a dart"), wxOK);
+		f->ShowModal();
+		//MyObject* tmpBalloon = new PoppedBalloon(tmp->getLoc());
+	}
+	else if (this->typeOfObject() == 0 && b->typeOfObject() == 2 && CollidedWith(this)) {
+		value += this->popScore();
+		b->scores = 0;
+		wxMessageDialog* f = new wxMessageDialog(nullptr,
+			wxT("Ok"), wxT("SCORES: Balloon hit a dart"), wxOK);
+		f->ShowModal();
+	}
+	else if (this->typeOfObject() == 2 && b->typeOfObject() == 0 && CollidedWith(this)) {
+		value += this->popScore();
+		b->scores = 0;
+		wxMessageDialog* f = new wxMessageDialog(nullptr,
+			wxT("Ok"), wxT("SCORES: Dart hit a balloon"), wxOK);
+		f->ShowModal();
+	}
+	else if (this->typeOfObject() == 2 && b->typeOfObject() == 2 && CollidedWith(this)) {
+		b->scores = 0;
+		wxMessageDialog* f = new wxMessageDialog(nullptr,
+			wxT("Ok"), wxT("SCORES: Balloon hit a balloon"), wxOK);
+		f->ShowModal();
+	}
+	else if (b == nullptr) {
+		wxMessageDialog* f = new wxMessageDialog(nullptr,
+			wxT("Ok"), wxT("SCORES: Dart missed"), wxOK);
+		f->ShowModal();
 	}
 
-	if (typeOfObject() == 0) { // if dart collided with dart
-		if (CollidedWith(0)) {
-			value += popScore();
-			scores = 0;
-		}
-	}
+	//wxMessageDialog* dial = new wxMessageDialog(nullptr,
+	//	wxT("Dart hit balloon"), wxT("Hi"), wxOK);
+	//dial->ShowModal();
 
 
 	// once we're done, update the overall score

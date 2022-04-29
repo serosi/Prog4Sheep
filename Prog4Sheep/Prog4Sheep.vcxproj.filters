@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Bomb.h">
+    <ClInclude Include="Dart.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cApp.h">
@@ -39,9 +39,24 @@
     <ClInclude Include="Balloon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="RedBalloon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="YellowBalloon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GreenBalloon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueBalloon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PoppedBalloon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Bomb.cpp">
+    <ClCompile Include="Dart.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cApp.cpp">
@@ -63,6 +78,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Balloon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RedBalloon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="YellowBalloon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GreenBalloon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueBalloon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PoppedBalloon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

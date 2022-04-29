@@ -1,6 +1,6 @@
 #pragma once
 // 
-// MyObject is an abstract base class for balloons and bombs.
+// MyObject is an abstract base class for balloons and Darts.
 //  - all objects in our game derive from this class!
 //
 #include <wx/wx.h>	// wxWidgets Graphical Framework
@@ -62,7 +62,7 @@ public:
 	// This way, you can distinguish the different types of objects
 	// without having to know their specific type beforehand
 	// - Each MyObject should define their own value
-	// - For example, Bomb = 0, RedBalloon = 1, etc.
+	// - For example, Dart = 0, RedBalloon = 1, etc.
 	virtual int typeOfObject() = 0;
 
 	// Returns whether a balloon is popped 
@@ -72,14 +72,14 @@ public:
 	// You do not need to override this function in all the different objects
 	virtual void Show(wxPaintDC& dc);
 
-	// Checks if the balloons and bombs collided with one another
+	// Checks if the balloons and Darts collided with one another
 	// This function evaluates whether image boundaries are overlapping
 	bool CollidedWith(MyObject* b) const;
 
 	// Calculates points of object collisions
-	// bomb vs nothing (bomb went past right border without hitting anything)
-	// bomb vs bomb = point deduction
-	// bomb vs balloon = post increase (according to popScore())
+	// Dart vs nothing (Dart went past right border without hitting anything)
+	// Dart vs Dart = point deduction
+	// Dart vs balloon = post increase (according to popScore())
 	void setScores(MyObject* b);
 
 	// get the object's current (x, y) location
@@ -96,5 +96,5 @@ protected:
 	int scores;						// positive integer value indicates not popped or exploded
 										// this would probably make more sense as a Bool
 	int type;						// Type of Object - might help identify 
-										// ballon vs bomb or extra features									
+										// ballon vs Dart or extra features									
 };

@@ -21,7 +21,7 @@ cGameViewPanel::cGameViewPanel(wxFrame* parent, MyObjectList* list)
 	// wouldn't it be nice if the user could adjust the refresh rate?
 	// sounds like some extra credit to me :)
 	m_timer = new wxTimer(this, 10003);
-	m_timer->Start(30);
+	m_timer->Start(24);
 
 	// There's a lot fewer controls created here because the view panel 
 	// is our game's drawing surface - this is where game objects will appear
@@ -68,5 +68,10 @@ void cGameViewPanel::OnTimer(wxTimerEvent& event)
 void cGameViewPanel::OnLeftClick(wxMouseEvent& event)
 {
 	wxPoint mousePt = event.GetPosition();
+	wxString n = wxString::Format(wxT("%i, %i"), mousePt.x, mousePt.y);
+
+
+	wxMessageDialog* f = new wxMessageDialog(nullptr, wxString(n), wxT("Ok"), wxOK);
+	f->ShowModal();
 	
 }

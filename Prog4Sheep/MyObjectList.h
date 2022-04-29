@@ -2,6 +2,7 @@
 #include <wx/wx.h>		// wxWdigets Framework
 #include <vector>		// std::vector to hold MyObject *s
 #include "MyObject.h"	// Abstract Base Class for objects in our game
+#include "PoppedBalloon.h" // for extra credit: summon a sprite of the popped balloon
 
 // MyObjectList is a container for our drawable game objects
 // it stores them all in a std::vector (do some research) and
@@ -12,7 +13,7 @@
 // this is useful for the OnPaint() event in the cGameViewPanel
 //
 // Notice that MyObjectList doesn't need to know about derived
-// objects such as Bomb, RedBalloon, etc. - it doesn't care, it
+// objects such as Dart, RedBalloon, etc. - it doesn't care, it
 // knows what functionality a MyObject has, and that's all it
 // needs to perform it's job!
 
@@ -33,7 +34,7 @@ public:
 	// Loops through the list and shows every bot 
 	void ShowAll(wxPaintDC& dc);
 
-	// Checks if the balloons have collided with eachother and pop balloons / bombs
+	// Checks if the balloons have collided with eachother and pop balloons / Darts
 	void CheckCollides();
 
 	// how many active objects are current in the game?
