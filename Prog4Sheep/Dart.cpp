@@ -30,7 +30,7 @@ void Dart::Move() {
 		xy_Current.second += y_SPEED;
 
 		if (xy_Current.first > tempSize.x || xy_Current.second > tempSize.y) {
-			// delete
+			this->scores = 0;
 		}
 	//}
 

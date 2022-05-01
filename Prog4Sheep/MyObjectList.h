@@ -2,7 +2,9 @@
 #include <wx/wx.h>		// wxWdigets Framework
 #include <vector>		// std::vector to hold MyObject *s
 #include "MyObject.h"	// Abstract Base Class for objects in our game
+//EXTRA CREDIT:
 #include "PoppedBalloon.h" // for extra credit: summon a sprite of the popped balloon
+#include "Sheep.h" // also for extra credit: summon a sprite of the sheep
 
 // MyObjectList is a container for our drawable game objects
 // it stores them all in a std::vector (do some research) and

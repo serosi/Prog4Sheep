@@ -58,8 +58,6 @@ void cGameViewPanel::OnTimer(wxTimerEvent& event)
 	if (m_objList != nullptr)
 		m_objList->MoveAll();
 
-	
-
 	// Force a re-draw
 	Refresh();
 	Update();

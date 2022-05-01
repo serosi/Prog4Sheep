@@ -54,6 +54,9 @@
     <ClInclude Include="PoppedBalloon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Sheep.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Dart.cpp">
@@ -93,6 +96,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PoppedBalloon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sheep.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

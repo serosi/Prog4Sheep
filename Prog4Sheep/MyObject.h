@@ -82,8 +82,15 @@ public:
 	// Dart vs balloon = post increase (according to popScore())
 	void setScores(MyObject* b);
 
+	int getCounter() { return counter; }
+
 	// get the object's current (x, y) location
 	std::pair<int, int> getLoc() { return xy_Current; }
+
+	//EXTRA CREDIT: for creation of a popped balloon object in MyObjectList.cpp
+	wxPanel* getPanel() { return drawPanel; };
+
+	wxStaticText* getScore() { return currentScore; };
 
 	// inheritable attributes
 protected:
@@ -96,5 +103,6 @@ protected:
 	int scores;						// positive integer value indicates not popped or exploded
 										// this would probably make more sense as a Bool
 	int type;						// Type of Object - might help identify 
-										// ballon vs Dart or extra features									
+										// ballon vs Dart or extra features						
+	int counter = 0; // extra credit: sets a counter to remove the popped balloon object after an amount of time
 };

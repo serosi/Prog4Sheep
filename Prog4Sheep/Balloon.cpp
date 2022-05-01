@@ -30,8 +30,8 @@ Balloon::Balloon(int startX, int startY, wxPanel* drawingPanel, wxStaticText* sc
 
 	// Gets the color value at 1, 1 which is magenta for each image & ignores it to mimic transparency
 	image.SetMaskColour(image.GetRed(1,1), image.GetGreen(1,1), image.GetBlue(1,1));
-	startPt = startX;
-	goingRight = true;
+	startPt = startX; // extra credit: make the balloon move side to side by defining a starting point
+	goingRight = true; // and setting the direction
 }
 
 

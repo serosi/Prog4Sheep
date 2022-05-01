@@ -31,6 +31,7 @@
     <ClInclude Include="Balloon.h" />
     <ClInclude Include="PoppedBalloon.h" />
     <ClInclude Include="RedBalloon.h" />
+    <ClInclude Include="Sheep.h" />
     <ClInclude Include="YellowBalloon.h" />
   </ItemGroup>
   <ItemGroup>
@@ -46,6 +47,7 @@
     <ClCompile Include="Balloon.cpp" />
     <ClCompile Include="PoppedBalloon.cpp" />
     <ClCompile Include="RedBalloon.cpp" />
+    <ClCompile Include="Sheep.cpp" />
     <ClCompile Include="YellowBalloon.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

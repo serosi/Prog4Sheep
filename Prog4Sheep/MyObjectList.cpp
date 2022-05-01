@@ -40,60 +40,67 @@ void MyObjectList::CheckCollides()
 {
 	// if the list is empty, there is nothing to do
 	if (list.empty()) return;
-
 	// OK, now how to we check for collisions between objects?
-	bool isHit = false;
-	for (int i = 0; i < list.size()-1; i++) {
-		for (int j = i+1; j < list.size(); j++) {
-			//if (list.at(i) != list.at(j) && !list.at(i)->IsPopped() && !list.at(j)->IsPopped() &&	list.at(i)->CollidedWith(list.at(j))) {
-			if (!list.at(i)->IsPopped() && !list.at(j)->IsPopped() && list.at(i)->CollidedWith(list.at(j))) {
+	for (int i = 0; i < list.size(); i++) {
+		if (!list.at(i)->IsPopped()) {
+			for (int j = i + 1; j < list.size() - 1; j++) {
+				if (!list.at(j)->IsPopped() && list.at(i)->CollidedWith(list.at(j))) {
 
-				// different scenarios to look for - 1 Dart 2 balloons 
-				// Dart vs Dart
-				// Dart vs balloon
-				// balloon vs Dart
+					//for (int i = 0; i < list.size() - 1; i++) {
+					//	for (int j = i + 1; j < list.size(); j++) {
+					//		if (!list.at(i)->IsPopped() && !list.at(j)->IsPopped() && list.at(i)->CollidedWith(list.at(j))) {
 
-				MyObject* tmp;
-				if (list.at(i)->typeOfObject() == 0) {
-					tmp = list.at(j);
-				} else {
-					tmp = list.at(i);
-				}
+								// What needs to happen here
+								// 1. call setscores
+								// 2. if dart hits lamb/balloon combo (or vice versa) add a balloong only object and lamb only object to vector
 
-				//if (tmp->typeOfObject() == 0) { // if dart hits dart
-				//	wxMessageDialog* f = new wxMessageDialog(nullptr,
-				//		wxT("Ok"), wxT("Dart hit a dart"), wxOK);
-				//	//f->ShowModal();
-				//	//MyObject* tmpBalloon = new PoppedBalloon(tmp->getLoc());
-				//}
-				if (tmp->typeOfObject() == 2) {
-					wxMessageDialog* f = new wxMessageDialog(nullptr,
-						wxT("Ok"), wxT("Dart hit balloon"), wxOK);
-					//f->ShowModal();
+								// if the two objects collide, decide what to do
+
+					list[i]->setScores(list[j]);
+					
+					// if dart hits sheep and pops its balloon, spawn a separate popped balloon and sheep object
+					if ((list[i]->typeOfObject() == 0 && list[j]->typeOfObject() == 2) ||
+						(list[i]->typeOfObject() == 2 && list[j]->typeOfObject() == 0))
+					{
+						wxMessageDialog* f = new wxMessageDialog(nullptr,
+							wxT("Ok"), wxT("Object list cpp Dart hit balloon"), wxOK);
+						//f->ShowModal();
+
+						// we need to now add a ballon-only object and a lamb only object to the vector (list)
+						// create the popped balloon object
+						// create the lamb only image 
+						// set their x/y locations appropriately
+						// inside of the move() function for a popped balloon object, just decrement a counter, when counter hits 0, this->scores = 0;
+						// inside of the move() function for a falling lamb object, just increment y value, when y value exceeds clientarea, this->scores = 0;
+
+						if ((list[i]->typeOfObject() == 2)) { // create a new PoppedBalloon object
+							std::pair<int, int> tempCoords = list[i]->getLoc();
+							MyObject* poppedBalloon = new PoppedBalloon(tempCoords.first, tempCoords.second, list[i]->getPanel(), list[i]->getScore());
+							MyObject* fallingSheep = new Sheep(tempCoords.first, tempCoords.second + 168, list[i]->getPanel(), list[i]->getScore());
+							list.push_back(fallingSheep);
+							DeleteBalloon(); // deletes current balloon and replaces it with popped to avoid changing vector size
+							list[i] = poppedBalloon;
+						}
+
+						if ((list[j]->typeOfObject() == 2)) { // same as above but if the balloon was at j
+							std::pair<int, int> tempCoords = list[j]->getLoc();
+							MyObject* poppedBalloon = new PoppedBalloon(tempCoords.first, tempCoords.second, list[j]->getPanel(), list[j]->getScore());
+							MyObject* fallingSheep = new Sheep(tempCoords.first, tempCoords.second + 168, list[j]->getPanel(), list[j]->getScore());
+							list.push_back(fallingSheep);
+							DeleteBalloon();
+							list[j] = poppedBalloon;
+							//list.push_back(poppedBalloon);
+						}
+
+						//MyObject* tmpBalloon = new PoppedBalloon(MyObject::xy_Current.first, MyObject::xy_Current.second);
+						// list.pushback(tmpBalloon);
+						// create lamb object as well and push back onto vector
+
+					}
 				}
-				
-				else if (tmp->typeOfObject() == 0) {
-					wxMessageDialog* f = new wxMessageDialog(nullptr,
-						wxT("Ok"), wxT("Balloon hit dart"), wxOK);
-					//f->ShowModal();
-				}
-				list.at(i)->setScores(list.at(j));
-				isHit = true;
 			}
 		}
 	}
-
-	if (isHit) {
-		std::vector<MyObject*> tempVect;
-		for (int i = 0; i < list.size(); i++) {
-			if (list.at(i)->typeOfObject() != 0) {
-				tempVect.push_back(list.at(i));
-			}
-		}
-		list = tempVect;
-	}
-	
-
 	return;
 }
 

@@ -125,8 +125,3 @@ void cGameControlPanel::OnButtonFire(wxCommandEvent& evt)
 	if (m_objList != nullptr)
 		m_objList->AddToList(dart);
 }
-
-void cGameControlPanel::OnFireDart(wxPoint& mousePt)
-{
-	
-}
