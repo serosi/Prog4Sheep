@@ -15,7 +15,7 @@ void Sheep::Move() {
 	wxSize tempSize = drawPanel->GetClientSize();
 
 	xy_Current.second -= y_SPEED;
-	if (xy_Current.second < 0 - 0 /* image.GetHeight() */) {
+	if (xy_Current.second > tempSize.y) {
 		scores = 0;
 	}
 }

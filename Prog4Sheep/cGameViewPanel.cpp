@@ -5,7 +5,6 @@
 wxBEGIN_EVENT_TABLE(cGameViewPanel, wxPanel)
 EVT_PAINT(OnPaint)
 EVT_TIMER(10003, OnTimer)
-EVT_LEFT_DOWN(OnLeftClick)
 wxEND_EVENT_TABLE()
 
 cGameViewPanel::cGameViewPanel(wxFrame* parent, MyObjectList* list)
@@ -17,9 +16,7 @@ cGameViewPanel::cGameViewPanel(wxFrame* parent, MyObjectList* list)
 	// Set a pointer to the MyObjectList maintained in cMain
 	m_objList = list;
 
-	// our animation timer - a 30ms timer
-	// wouldn't it be nice if the user could adjust the refresh rate?
-	// sounds like some extra credit to me :)
+	// animation timer
 	m_timer = new wxTimer(this, 10003);
 	m_timer->Start(24);
 
@@ -29,12 +26,6 @@ cGameViewPanel::cGameViewPanel(wxFrame* parent, MyObjectList* list)
 
 cGameViewPanel::~cGameViewPanel()
 {
-	// only need to clean up dynamic memory related to 
-	// NON-wxWidgets objects - wxWidgets cleans up its own
-	// GUI elements to prevent crashes due to unhandled events
-	// that might refer to child objects, etc. watch the tutorial
-	// video I linked in class or talk to me if you are interested
-	// in exploring this further
 }
 
 void cGameViewPanel::OnPaint(wxPaintEvent& event)
@@ -63,13 +54,3 @@ void cGameViewPanel::OnTimer(wxTimerEvent& event)
 	Update();
 }
 
-void cGameViewPanel::OnLeftClick(wxMouseEvent& event)
-{
-	wxPoint mousePt = event.GetPosition();
-	wxString n = wxString::Format(wxT("%i, %i"), mousePt.x, mousePt.y);
-
-
-	wxMessageDialog* f = new wxMessageDialog(nullptr, wxString(n), wxT("Ok"), wxOK);
-	f->ShowModal();
-	
-}

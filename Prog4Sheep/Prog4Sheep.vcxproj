@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -28,8 +28,10 @@
     <ClInclude Include="GreenBalloon.h" />
     <ClInclude Include="MyObject.h" />
     <ClInclude Include="MyObjectList.h" />
-    <ClInclude Include="Balloon.h" />
-    <ClInclude Include="PoppedBalloon.h" />
+    <ClInclude Include="PoppedBlue.h" />
+    <ClInclude Include="PoppedGreen.h" />
+    <ClInclude Include="PoppedRed.h" />
+    <ClInclude Include="PoppedYellow.h" />
     <ClInclude Include="RedBalloon.h" />
     <ClInclude Include="Sheep.h" />
     <ClInclude Include="YellowBalloon.h" />
@@ -44,8 +46,10 @@
     <ClCompile Include="GreenBalloon.cpp" />
     <ClCompile Include="MyObject.cpp" />
     <ClCompile Include="MyObjectList.cpp" />
-    <ClCompile Include="Balloon.cpp" />
-    <ClCompile Include="PoppedBalloon.cpp" />
+    <ClCompile Include="PoppedBlue.cpp" />
+    <ClCompile Include="PoppedGreen.cpp" />
+    <ClCompile Include="PoppedRed.cpp" />
+    <ClCompile Include="PoppedYellow.cpp" />
     <ClCompile Include="RedBalloon.cpp" />
     <ClCompile Include="Sheep.cpp" />
     <ClCompile Include="YellowBalloon.cpp" />

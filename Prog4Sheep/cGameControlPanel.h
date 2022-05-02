@@ -1,21 +1,15 @@
 #pragma once
 #include <wx/wx.h>
-#include "Balloon.h"
+#include "RedBalloon.h"
+#include "YellowBalloon.h"
+#include "GreenBalloon.h"
+#include "BlueBalloon.h"
 #include "Dart.h"
 #include "MyObjectList.h"
 
-// it's better design to add controls to a panel and
-// attach panels to our top-level frame - this gives
-// a lot more control and flexibility to our designs!
-// ****
-// The cGameControlPanel is where we will draw game control
-// elements like the "Fire" button
 class cGameControlPanel : public wxPanel
 {
 public:
-	// the control panel will know about the view panel
-	// better ways to handle this to minimize coupling
-	// again, you'll learn about them in OOAD
 	cGameControlPanel(wxFrame* parent, wxPanel* view, MyObjectList* list);
 	~cGameControlPanel();
 

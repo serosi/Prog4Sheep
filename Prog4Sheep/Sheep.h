@@ -15,8 +15,10 @@ public:
 
 	//This method returns the type of the object
 	virtual int typeOfObject();
+
+	bool IsPopped() const { return scores <= 0; }
 private:
 	int y_SPEED = -5;
-	int type = 4;
+	int type = 1;
 };
 

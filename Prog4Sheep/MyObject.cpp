@@ -1,26 +1,16 @@
-// 
-// MyObject is an abstract base class for balloons and Darts.
-// 
+// MyObject is an abstract base class for balloons, sheep, and darts.
 #include "MyObject.h"
 
-void MyObject::Show(wxPaintDC& dc)
-{
+void MyObject::Show(wxPaintDC& dc) {
 	// as long as the image has been created, draw it!
-	if (image.IsOk()) {
-		// draw the image to the graphics object
+	if (image.IsOk())
 		dc.DrawBitmap(image, xy_Current.first, xy_Current.second, true);
-	}
-	else {
-		wxMessageBox("MyObject Image Invalid, program will now crash! :(");
-	}
+	else
+		wxMessageBox("MyObject image invalid. Program will now crash! :(");
 }
 
-// Don't rewrite or override this one, unless it's for 
-// extra credit! You shouldn't be overriding to make
-// your life easier, but to implement something even more
-// complicated :)
-bool MyObject::CollidedWith(MyObject* b) const
-{
+// check coordinates and return whether an object was collided with
+bool MyObject::CollidedWith(MyObject* b) const {
 	// make sure the passed in object is valid
 	if (b == nullptr)
 		return false;
@@ -41,63 +31,40 @@ bool MyObject::CollidedWith(MyObject* b) const
 	return ((x_right >= bx_left && bx_right >= x_left) && (y_bottom >= by_top && by_bottom >= y_top));
 }
 
-// This function sets the Scores for the balloons and Darts
+// This function sets the scores for the balloons and darts
 void MyObject::setScores(MyObject* b)
 {
 	// update the score
 	long value;
 	currentScore->GetLabel().ToLong(&value);
-	wxSize tempSize = drawPanel->GetClientSize();
-	std::pair<int, int> tempCoordsOrig = this->getLoc();
-	std::pair<int, int> tempCoordsSec = b->getLoc();
 
-	 // to make the popped balloon object disappear after some amount of time
+	// EXTRA CREDIT: make the popped balloon object disappear after 30 ticks
 	counter++;
 
-	// I'll give you a hint though, in every branch, you want to follow
-	// this logic:
-	// 1. add popScore() to value 
-	// 2. set scores = 0 for each object, that's what tells the program
-	//    that the object is popped (or exploded in the case of Darts)!
-
-	// we only care about setting dart objects and lamb/balloon objects in this function
-	// balloon only objects and lamb only objects will take care of themselves (this->scores = 0) in their move function
-
-	// if dart hits balloon or balloon hits dart
-	if ((this->typeOfObject() == 0 && b->typeOfObject() == 2)) {
+	// if this object is dart and passed in object is balloon
+	if ((this->typeOfObject() == 0 && b->typeOfObject() >= 2 && b->typeOfObject() <= 5)) {
 		value += b->popScore();
 		b->scores = 0;
-		wxMessageDialog* f = new wxMessageDialog(nullptr, wxT("Ok"), wxT("b Dart hit balloon"), wxOK);
-		//f->ShowModal();
 	}
-	if ((this->typeOfObject() == 2 && b->typeOfObject() == 0)) {
+
+	// if passed in object is dart and this is balloon
+	if (this->typeOfObject() >= 2 && this->typeOfObject() <= 5 && b->typeOfObject() == 0) {
 		value += this->popScore();
 		b->scores = 0;
-		wxMessageDialog* f = new wxMessageDialog(nullptr, wxT("Ok"), wxT("this Dart hit balloon"), wxOK);
-		//f->ShowModal();
 	}
-	// if dart hits dart
+	// if both objects are darts
 	if (this->typeOfObject() == 0 && b->typeOfObject() == 0) {
 		value += this->popScore();
 		b->scores = 0;
-		wxMessageDialog* f = new wxMessageDialog(nullptr, wxT("Ok"), wxT("SCORES Dart hit dart"), wxOK);
-		//f->ShowModal();
-	}
-
-	if (counter >= 30 && (this->typeOfObject() == 3 || b->typeOfObject() == 3)) {
 		this->scores = 0;
 	}
 
-	if (this->typeOfObject() == 4 && tempCoordsOrig.second -50 > tempSize.y) {
+	// if the counter reaches 30, despawn the popped balloon object
+	if (counter >= 30 && (this->typeOfObject() == 6 || b->typeOfObject() == 6)) {
 		this->scores = 0;
 	}
 
-	if (b->typeOfObject() == 4 && tempCoordsSec.second -50 > tempSize.y) {
-		b->scores = 0;
-	}
-
-	// once we're done, update the overall score
-	// set the textbox with the new score
+	// update the score
 	wxString strLong = wxString::Format(wxT("%ld"), value);
 	currentScore->SetLabel(strLong);
 }

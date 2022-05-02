@@ -36,9 +36,6 @@
     <ClInclude Include="MyObjectList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Balloon.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="RedBalloon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -51,10 +48,19 @@
     <ClInclude Include="BlueBalloon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PoppedBalloon.h">
+    <ClInclude Include="Sheep.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Sheep.h">
+    <ClInclude Include="PoppedRed.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PoppedYellow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PoppedGreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PoppedBlue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -80,9 +86,6 @@
     <ClCompile Include="MyObjectList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Balloon.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="RedBalloon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -95,10 +98,19 @@
     <ClCompile Include="BlueBalloon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PoppedBalloon.cpp">
+    <ClCompile Include="Sheep.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Sheep.cpp">
+    <ClCompile Include="PoppedRed.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PoppedYellow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PoppedGreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PoppedBlue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

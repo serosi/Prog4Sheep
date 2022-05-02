@@ -1,10 +1,10 @@
 #pragma once
 #include "MyObject.h"
-class PoppedBalloon : public MyObject
+class PoppedRed : public MyObject
 {
 public:
-   PoppedBalloon(int startX, int startY, wxPanel* drawingPanel, wxStaticText* scoreValue);
-   ~PoppedBalloon();
+	PoppedRed(int startX, int startY, wxPanel* drawingPanel, wxStaticText* scoreValue);
+	~PoppedRed();
 	// This Method moves the popped sheep
 	virtual void Move();
 
@@ -14,9 +14,11 @@ public:
 	//This method returns the type of the object
 	virtual int typeOfObject();
 
+	bool IsPopped() const { return scores <= 0; }
+
 private:
-   int y_SPEED = -5;
-	int type = 3;
+	int y_SPEED = -5;
+	int type = 6;
 	int counter = 0;
 };
 
